@@ -1,0 +1,23 @@
+{
+    "name": "genaker/module-mcp-server",
+    "description": "Magento 2 MCP Server - Auto-discovers Swagger API and exposes as MCP tools",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1",
+        "magento/framework": "*",
+        "magento/module-webapi": "*",
+        "magento/module-store": "*",
+        "guzzlehttp/guzzle": "^7.0",
+        "php-mcp/server": "^3.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Genaker\\McpServer\\": ""
+        }
+    }
+}

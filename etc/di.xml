@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Genaker\McpServer\Model\SwaggerToolGenerator">
+        <arguments>
+            <argument name="scopeConfig" xsi:type="object">Magento\Framework\App\Config\ScopeConfigInterface</argument>
+            <argument name="storeManager" xsi:type="object">Magento\Store\Model\StoreManagerInterface</argument>
+            <argument name="logger" xsi:type="object">Psr\Log\LoggerInterface</argument>
+        </arguments>
+    </type>
+    <type name="Genaker\McpServer\Model\MCPAPIServer">
+        <arguments>
+            <argument name="toolGenerator" xsi:type="object">Genaker\McpServer\Model\SwaggerToolGenerator</argument>
+            <argument name="logger" xsi:type="object">Psr\Log\LoggerInterface</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="mcp_server" xsi:type="object">Genaker\McpServer\Console\Command\McpServerCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
